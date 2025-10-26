@@ -6,7 +6,7 @@
   tasks:
   - name: install packages
     package:
-      name: 
+      name:
         - htop
         - tmux
         - neovim
@@ -21,11 +21,13 @@
       group: root
 
   - name: set wallpaper
+    become_user: kody
     dconf:
       key: "/org/gnome/desktop/background/picture-uri"
       value: "'file://usr/shre/backgrounds/ansible-wallpaper.png'"
-  
+
   - name: set wallpaper position
+    become_user: kody
     dconf:
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
